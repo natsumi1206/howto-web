@@ -1,36 +1,63 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">
-        Home
-      </router-link> |
-      <router-link to="/about">
-        About
-      </router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app :style=" {background: $vuetify.theme.themes.dark.background} ">
+    <Header />
+    <v-container
+      fill-height
+      style="position: relative"
+    >
+      <Sidebar id="sidebar" />
+      <v-btn
+        id="post-btn-sp"
+        fab
+        x-large
+        color="teal lighten-1"
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </v-container>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import Header from "./components/Header.vue"
+import Sidebar from "./components/Sidebar.vue"
+
+export default {
+  components: {
+    Header,
+    Sidebar
+  },
 }
+</script>
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="scss">
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+#sidebar {
+  @include display_sp {
+    display: none !important;
+  }
+  @include display_tab {
+    display: none !important;
   }
 }
+
+#post-btn-sp {
+  @include display_sp {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin: 0 20px 50px 0;
+  }
+  @include display_tab {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin: 0 20px 50px 0;
+  }
+  @include display_pc {
+    display: none;
+  }
+}
+
 </style>

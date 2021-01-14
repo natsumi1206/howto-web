@@ -1,0 +1,30 @@
+$xs: 600px;
+$sm: 960px;
+$md: 1264px;
+$lg: 1904px;
+ 
+$sp-max: calc( #{$xs} - 1px);
+$tb-min: $xs + 1px;
+$tb-max: calc(#{$sm} - 1px);
+$pc-min: $sm + 1px;
+ 
+/* PC */
+@mixin display_pc {
+  @media (min-width: #{$pc-min}) {
+    @content;
+  }
+}
+ 
+/* タブレット */
+@mixin display_tab {
+  @media (min-width: #{$tb-min}) and (max-width: #{$tb-max}) {
+    @content;
+  }
+}
+ 
+/* スマホ */
+@mixin display_sp {
+  @media (max-width: #{$sp-max} ) {
+    @content;
+  }
+}
