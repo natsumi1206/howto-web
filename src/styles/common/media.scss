@@ -4,9 +4,9 @@ $md: 1264px;
 $lg: 1904px;
  
 $sp-max: calc( #{$xs} - 1px);
-$tb-min: $xs + 1px;
+$tb-min: $xs;
 $tb-max: calc(#{$sm} - 1px);
-$pc-min: $sm + 1px;
+$pc-min: $sm;
  
 /* PC */
 @mixin display_pc {
