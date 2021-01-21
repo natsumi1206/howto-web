@@ -78,6 +78,7 @@
           block
           color="teal lighten-1"
           class="lowercase"
+          @click="logout()"
         >
           Logout
         </v-btn>
