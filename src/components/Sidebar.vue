@@ -12,7 +12,11 @@
         justify="center"
         align-content="center"
       >
-        <v-card />
+        <v-card>
+          <router-link to="/profile">
+            Profile
+          </router-link>
+        </v-card>
       </v-row>
       <v-row
         class="sidebar-colomn"
@@ -25,7 +29,9 @@
           color="grey darken-2"
           class="round-l"
         >
-          <v-card-text />
+          <v-card-text>
+            {{ }}
+          </v-card-text>
         </v-card>
       </v-row>
       <v-row

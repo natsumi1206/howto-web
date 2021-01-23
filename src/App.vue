@@ -1,23 +1,34 @@
 <template>
-  <v-app :style=" {background: $vuetify.theme.themes.dark.background} ">
-    <Header />
-    <v-container
-      fill-height
-      style="position: relative;"
+  <div>
+    <v-app
+      v-if="$store.getters.loggedIn"
+      :style=" {background: $vuetify.theme.themes.dark.background} "
     >
-      <v-row>
-        <Sidebar id="sidebar" />
-        <v-btn
-          id="post-btn-sp"
-          fab
-          x-large
-          color="teal lighten-1"
-        >
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </v-row>
-    </v-container>
-  </v-app>
+      <Header />
+      <v-container
+        fill-height
+        style="position: relative;"
+      >
+        <v-row>
+          <Sidebar id="sidebar" />
+          <router-view />
+          <v-btn
+            id="post-btn-sp"
+            fab
+            x-large
+            color="teal lighten-1"
+          >
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </v-row>
+      </v-container>
+    </v-app>
+    <v-app
+      v-if="!$store.getters.loggedIn"
+    >
+      <router-view />
+    </v-app>
+  </div>
 </template>
 
 <script>
@@ -29,6 +40,7 @@ export default {
     Header,
     Sidebar
   },
+  methods: {}
 }
 </script>
 

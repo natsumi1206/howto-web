@@ -7,12 +7,17 @@
         hide-on-scroll
         scroll-threshold="3"
       >
-        <v-app-bar-title> Title</v-app-bar-title>
+        <v-app-bar-title>
+          <router-link to="/">
+            Title
+          </router-link>
+        </v-app-bar-title>
         <v-spacer />
         <v-btn
           id="logout"
           text
           class="lowercase"
+          @click="logout()"
         >
           Logout
         </v-btn>
@@ -90,6 +95,15 @@ export default {
       drawer: false,
       menuItems: contents.menuItems,
       tabItems: contents.tabItems,
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.commit("RESET_VUEX_STATE")
+      this.$router.push({
+          path: "/login",
+          query: {redirect: this.$route.fullPath}
+        })
     }
   }
 }
