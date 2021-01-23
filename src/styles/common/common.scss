@@ -1,1 +1,20 @@
-@import "./media.scss"
+@import "./media.scss";
+
+// line-color
+$grey-darken-3: #424242;
+
+.border-bottom {
+  border-bottom: 1px solid $grey-darken-3 !important;
+}
+
+.round-s {
+  border-radius: 2px !important;
+}
+
+.round-l {
+  border-radius: 10px !important;
+}
+
+.lowercase {
+  text-transform: none;
+}

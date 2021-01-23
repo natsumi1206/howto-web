@@ -1,22 +1,43 @@
 <template>
   <div>
-    <div class="border-bottom">
+    <div>
       <v-app-bar
         color="#2a2a2a"
-        elevation="0"
+        app
+        hide-on-scroll
+        scroll-threshold="3"
       >
-        <v-toolbar-title>
-          Title
-        </v-toolbar-title>
+        <v-app-bar-title> Title</v-app-bar-title>
         <v-spacer />
         <v-btn
           id="logout"
           text
-          style="text-transform: none;"
+          class="lowercase"
         >
           Logout
         </v-btn>
         <v-app-bar-nav-icon @click="drawer = true" />
+        <template
+          v-slot:extension
+        >
+          <v-tabs
+            grow
+            color="teal darken-1"
+            background-color="#2a2a2a"
+            show-arrows
+            center-active
+          >
+            <v-tabs-slider />
+            <v-tab
+              v-for="(tabItem, index) in tabItems"
+              :key="index"
+            >
+              {{ tabItem.name }}
+            </v-tab>
+            <v-spacer />
+            <v-tab>all</v-tab>
+          </v-tabs>
+        </template>
       </v-app-bar>
       <v-navigation-drawer
         v-model="drawer"
@@ -51,29 +72,11 @@
           depressed
           block
           color="teal lighten-1"
-          style="text-transform: none;"
+          class="lowercase"
         >
           Logout
         </v-btn>
       </v-navigation-drawer>
-    </div>
-    <div class="border-bottom">
-      <v-tabs
-        grow
-        color="teal darken-1"
-        background-color="#2a2a2a"
-        show-arrows
-      >
-        <v-tabs-slider />
-        <v-tab
-          v-for="(tabItem, index) in tabItems"
-          :key="index"
-        >
-          {{ tabItem.name }}
-        </v-tab>
-        <v-spacer />
-        <v-tab>all</v-tab>
-      </v-tabs>
     </div>
   </div>
 </template>
@@ -93,10 +96,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.border-bottom {
-  border-bottom: 1px solid #424242;
-}
 
 #logout {
   @include display_sp {

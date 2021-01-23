@@ -3,17 +3,19 @@
     <Header />
     <v-container
       fill-height
-      style="position: relative"
+      style="position: relative;"
     >
-      <Sidebar id="sidebar" />
-      <v-btn
-        id="post-btn-sp"
-        fab
-        x-large
-        color="teal lighten-1"
-      >
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
+      <v-row>
+        <Sidebar id="sidebar" />
+        <v-btn
+          id="post-btn-sp"
+          fab
+          x-large
+          color="teal lighten-1"
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-row>
     </v-container>
   </v-app>
 </template>
@@ -46,14 +48,14 @@ export default {
   @include display_sp {
     bottom: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     margin: 0 20px 50px 0;
   }
   @include display_tab {
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    margin: 0 20px 50px 0;
+    bottom: 0 !important;
+    right: 0 !important;
+    position: fixed !important;
+    margin: 0 20px 50px 0 !important;
   }
   @include display_pc {
     display: none;
