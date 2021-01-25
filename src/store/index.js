@@ -7,11 +7,11 @@ import { userData } from "./login";
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  plugins: [createPersistedState()],//stateのユーザーデータを自動的にローカルストレージに保存してくれるプラグイン
+  plugins: [createPersistedState()],
   state: userData,
   getters: {
     loggedIn: (state) => {
-      return Boolean(state.email.trim() || state.password.trim())
+      return Boolean(state.email || state.password)
     }
   },
   mutations: {

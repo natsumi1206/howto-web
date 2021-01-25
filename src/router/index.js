@@ -11,16 +11,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: "/",
+      meta: {requiresAuth: true}, //ログイン認証が必要なページ
+    },
+    {
       path: "/login",
       component: Login
     },
     {
       path: "/profile",
       component: Profile,
-      meta: {requiresAuth: true}, //ログイン認証が必要なページ
-    },
-    {
-      path: "/",
       meta: {requiresAuth: true}, //ログイン認証が必要なページ
     },
   ]
