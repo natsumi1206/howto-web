@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import Api from '../api/Api';
+import Api from "../api/Api";
 
 export default {
   data () {
@@ -65,11 +65,6 @@ export default {
     }
   },
   methods: {
-    // login() {
-    //   this.$store.commit("setEmail", this.email)
-    //   this.$store.commit("setPassword", this.password)
-    //   this.$router.push(this.$route.query.redirect)
-    // },
     login() {
       Api.get("csrf-cookie").then(() => {
         Api.post("login", {
@@ -78,6 +73,9 @@ export default {
           })
           .then(response => {
             console.log(response);
+            this.$store.commit("setEmail", this.email)
+            this.$store.commit("setPassword", this.password)
+            this.$router.push(this.$route.query.redirect)
           })
           .catch((error) => {
             console.log(error);
