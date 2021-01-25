@@ -88,6 +88,7 @@
 </template>
 
 <script>
+import Api from "../api/Api"
 import contents from "../contents"
 export default {
   name: "Header",
@@ -100,11 +101,21 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.commit("RESET_VUEX_STATE")
-      this.$router.push({
+      Api.post("logout", {
+        email: this.email,
+        password: this.password,
+      })
+      .then(response => {
+        console.log(response);
+        this.$store.commit("RESET_VUEX_STATE")
+        this.$router.push({
           path: "/login",
           query: {redirect: this.$route.fullPath}
         })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     }
   }
 }
