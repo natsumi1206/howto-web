@@ -37,6 +37,11 @@
           >
             ユーザー取得
           </v-btn>
+          <v-btn>
+            <router-link to="/register">
+              新規登録はこちら
+            </router-link>
+          </v-btn>
         </v-card-text>
       </v-card>
     </v-row>
